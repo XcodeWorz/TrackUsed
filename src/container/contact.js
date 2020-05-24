@@ -60,11 +60,13 @@ const Contact = () => {
                   <div className="step-number">3</div>
                   <div className="step-text">New York</div>
                   <div className="step-description">
-                    4342 Marshall Drive Dallas Texas 75210
+                    445752 Brandborg Creek Rd
+                    Henning, Minnesota(MN)
+                    56551
                     <p>&nbsp;</p>
                     <div className="pull-left">
                       <a className="before-begin before-click" href="">
-                        Tel: +12647364082
+                        Tel: +1-218-270-5744
                       </a>
                     </div>
                     <p>&nbsp;</p>

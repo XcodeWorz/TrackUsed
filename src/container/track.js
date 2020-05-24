@@ -116,13 +116,23 @@ class Track extends Component {
               {item.destination}
             </label>
             <br /><br />
-            <li>
+            {item.arrived === 'Yes' ? (
+              <li>
+              <a href="/" target="_blank">
+                Parcel Status
+              </a>
+              &nbsp;
+              Parcel arrived {item.destination}
+            </li>)
+            :
+            (<li>
               <a href="/" target="_blank">
                 Parcel Status
               </a>
               &nbsp;
               Bag out and enroute to {item.destination}
-            </li>
+            </li>)
+            }
             <br />
             <p>&nbsp;</p>
             <ul className="text-left">

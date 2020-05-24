@@ -16,7 +16,8 @@ export default class Edit extends Component {
     agent : '',
     sender : '' ,
     arrived : '',
-    parcel_description: ''
+    parcel_description: '',
+    id: ''
  };
 
  componentDidMount() {
@@ -51,44 +52,56 @@ export default class Edit extends Component {
   });
 }
 
+editTicket = (newTicket) => {
+  axios.request({
+    method:'put',
+    url:`https://5d245031e39785001406ecde.mockapi.io/track/${this.props.match.params.id}`,
+    data: newTicket
+  }).then(res => {
+    console.log(res)
+    this.props.history.push('/list');
+  }).catch(err => console.log(err));
+}
+
 onSubmit = (event) => {
   event.preventDefault();
 
-  const data = {
-    start : this.state.start ,
-    transit : this.state.transit,
-    destination : this.state.destination,
-    track_number : this.state.track_number,
-    owner : this.state.owner,
-    address : this.state.address,
-    phone : this.state.phone,
-    Id_document : this.state.Id_document,
-    email : this.state.email,
-    agent : this.state.agent,
-    sender : this.state.sender,
-    arrived : this.state.arrived,
-    parcel_description: this.state.parcel_description
+  const newTicket = {
+    start : event.target.start.value ,
+    transit : event.target.transit.value,
+    destination : event.target.destination.value,
+    track_number : event.target.track_number.value,
+    owner : event.target.owner.value,
+    address : event.target.address.value,
+    phone : event.target.phone.value,
+    Id_document : event.target.Id_document.value,
+    email : event.target.email.value,
+    agent : event.target.agent.value,
+    sender : event.target.sender.value,
+    arrived : event.target.arrived.value,
+    parcel_description: event.target.parcel_description.value
   };
+  this.editTicket(newTicket)
 
-  axios.post(`https://5d245031e39785001406ecde.mockapi.io/track/${this.props.match.params.id}`,data)
-  .then((response) => {
-    this.props.history.push('/list')
-  }).catch(err => console.log(err))
-  this.setState({
-    start : '' ,
-    transit : '',
-    destination : '' ,
-    track_number : '',
-    owner : '' ,
-    address : '',
-    phone : '' ,
-    Id_document : '',
-    email : '' ,
-    agent : '',
-    sender : '' ,
-    arrived : '',
-    parcel_description: ''
- });
+//   axios.put(`https://5d245031e39785001406ecde.mockapi.io/track/${this.state.id}`,data)
+//   .then((response) => {
+//     this.props.history.push('/list')
+//   }).catch(err => console.log(err))
+//   this.setState({
+//     start : '' ,
+//     transit : '',
+//     destination : '' ,
+//     track_number : '',
+//     owner : '' ,
+//     address : '',
+//     phone : '' ,
+//     Id_document : '',
+//     email : '' ,
+//     agent : '',
+//     sender : '' ,
+//     arrived : '',
+//     parcel_description: ''
+//  });
 }
 
   render() {
@@ -221,7 +234,7 @@ onSubmit = (event) => {
                 </div>
                 <div className="form-group">
                     <input type="submit"
-                      value="Add Record"
+                      value="Edit Record"
                       className="btn btn-primary"/>
                 </div>
             </form>
