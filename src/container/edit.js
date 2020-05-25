@@ -21,7 +21,7 @@ export default class Edit extends Component {
  };
 
  componentDidMount() {
-  axios.get(`https://5d245031e39785001406ecde.mockapi.io/track/${this.props.match.params.id}`)
+  axios.get(`http://localhost:8000/track${this.props.match.params.id}`)
       .then(response => {
         this.setState({
           start : response.data.start ,
@@ -55,7 +55,7 @@ export default class Edit extends Component {
 editTicket = (newTicket) => {
   axios.request({
     method:'put',
-    url:`https://5d245031e39785001406ecde.mockapi.io/track/${this.props.match.params.id}`,
+    url:`http://localhost:8000/track${this.props.match.params.id}`,
     data: newTicket
   }).then(res => {
     console.log(res)

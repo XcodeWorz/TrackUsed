@@ -9,7 +9,7 @@ export default class AllList extends Component {
 }
 
   delete (){
-    axios.delete(`https://5d245031e39785001406ecde.mockapi.io/track/${this.props.obj.id}`)
+    axios.delete(`http://localhost:8000/track${this.props.obj.id}`)
         .then(res => {
           this.props.history.push('/list');
           window.location.reload();
