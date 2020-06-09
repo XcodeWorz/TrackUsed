@@ -4,6 +4,23 @@
   font-weight: bold;
 }
 
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #d40511;
+  border-color: #d40511 transparent #d40511 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
 .headline, .icon-box .title, .white-widget .white-title {
   font-family: 'Poppins', sans-serif !important;
 }

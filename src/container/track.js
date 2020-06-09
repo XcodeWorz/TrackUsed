@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 class Track extends Component {
@@ -74,8 +74,8 @@ class Track extends Component {
                           value={this.state.query}
                           placeholder="tracking number"
                         />
-                        <span className="submit-arrow-container input-group-addon">
-                          <span onClick={this.getShow} className="submit-arrow" />
+                        <span onClick={this.getShow} className="submit-arrow-container input-group-addon">
+                          <span className="submit-arrow" />
                         </span>
                       </div>
                       <div className="help-block" />
@@ -86,7 +86,7 @@ class Track extends Component {
               <div className="clearfix" />
             </div>
             <p />
-            <Suspense fallback={<h1>Loading profile...</h1>}>
+            {this.state.loading && <i className="fa fa-spinner fa-spin" style={{fontSize: "24px"}}></i>}
             {this.state.series.map((item) => {
               return (
                 <div key={item.id}>
@@ -97,25 +97,31 @@ class Track extends Component {
              Hello {item.owner}<br /><br />
              {item.transit && (<p>Enroute - {item.transit} <i style={{color: 'red'}} className="fa fa-diamond" aria-hidden="true"></i> </p>)}
             </label><br />
+            <div className="grey-box first">
+              <div className="grey-box-container">
             <label
               className="control-label"
             >
               {item.start}
             </label>
-            {" "}
-            <i style={{color: 'red'}} className="fa fa-diamond" aria-hidden="true"></i>
-            {" "}  ---------------------- {" "}
-            {" "}
-            <i style={{color: 'red'}} className="fa fa-diamond" aria-hidden="true"></i>
-            {" "} {" "}  ---------------------- {" "}
-            <i style={{color: 'red'}} className="fa fa-diamond" aria-hidden="true"></i>
-            {" "}
-            {" "}
+
+                {" "}
+                <i style={{color: 'red'}} className="fa fa-diamond" aria-hidden="true"></i>
+                {" "}  ---------------------- {" "}
+                {" "}
+                <i style={{color: 'red'}} className="fa fa-diamond" aria-hidden="true"></i>
+                {" "} {" "}  ---------------------- {" "}
+                <i style={{color: 'red'}} className="fa fa-diamond" aria-hidden="true"></i>
+                {" "}
+                {" "}
+
             <label
               className="control-label"
             >
               {item.destination}
             </label>
+            </div>
+            </div>
             <br /><br />
             {item.arrived === 'Yes' ? (
               <li>
@@ -196,7 +202,6 @@ class Track extends Component {
             </div>
               );
             })}
-            </Suspense>
           </div>
         </div>
       </section>
