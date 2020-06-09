@@ -21,24 +21,30 @@ export default class Edit extends Component {
  };
 
  componentDidMount() {
-  axios.get(`http://localhost:8000/track${this.props.match.params.id}`)
-      .then(response => {
+   this.getTrack();
+ }
+
+ getTrack = () => {
+   const id = this.props.match.params.id
+  axios.get(`https://5d245031e39785001406ecde.mockapi.io/track/${id}`)
+      .then(res => {
         this.setState({
-          start : response.data.start ,
-          transit : response.data.transit,
-          destination : response.data.destination ,
-          track_number : response.data.track_number,
-          owner : response.data.owner ,
-          address : response.data.address,
-          phone : response.data.phone ,
-          Id_document : response.data.Id_document,
-          email : response.data.email,
-          agent : response.data.agent,
-          sender : response.data.sender,
-          arrived : response.data.arrived,
-          parcel_description: response.data.parcel_description
+          id: res.data.id,
+          start : res.data.start ,
+          transit : res.data.transit,
+          destination : res.data.destination ,
+          track_number : res.data.track_number,
+          owner : res.data.owner ,
+          address : res.data.address,
+          phone : res.data.phone ,
+          Id_document : res.data.Id_document,
+          email : res.data.email,
+          agent : res.data.agent,
+          sender : res.data.sender,
+          arrived : res.data.arrived,
+          parcel_description: res.data.parcel_description
        });
-       console.log('response', response)
+       console.log('response', res.data)
       })
       .catch(function (error) {
           console.log(error);
@@ -55,7 +61,7 @@ export default class Edit extends Component {
 editTicket = (newTicket) => {
   axios.request({
     method:'put',
-    url:`http://localhost:8000/track${this.props.match.params.id}`,
+    url:`https://5d245031e39785001406ecde.mockapi.io/track/${this.props.match.params.id}`,
     data: newTicket
   }).then(res => {
     console.log(res)

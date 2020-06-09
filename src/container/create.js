@@ -45,7 +45,7 @@ onSubmit = (event) => {
     parcel_description: this.state.parcel_description
   };
 
-  axios.put(`http://localhost:8000/track`,data)
+  axios.post(`https://5d245031e39785001406ecde.mockapi.io/track`,data)
   .then((response) => {
     this.props.history.push('/list')
   }).catch(err => console.log(err))

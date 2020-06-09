@@ -8,7 +8,7 @@ export default class List extends Component {
   state = {track: []};
 
   componentDidMount(){
-    axios.get('http://localhost:8000/track')
+    axios.get('https://5d245031e39785001406ecde.mockapi.io/track')
       .then(response => {
         this.setState({ track: response.data });
         console.log(response.data)

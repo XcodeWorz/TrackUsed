@@ -21,7 +21,7 @@ class Track extends Component {
     this.setState({loading: true})
     e.preventDefault();
     axios
-      .get(` http://localhost:8000/track?search=${this.state.query}`, {
+      .get(`https://5d245031e39785001406ecde.mockapi.io/track?search=${this.state.query}`, {
         headers: {
           'Content-Type': 'application/json; charset=utf-8'
         }
@@ -89,12 +89,13 @@ class Track extends Component {
             <Suspense fallback={<h1>Loading profile...</h1>}>
             {this.state.series.map((item) => {
               return (
-                <div id={item.id}>
+                <div key={item.id}>
                 <label
               className="control-label"
               htmlFor="trackaparcelform-number"
             >
-             Hello  {item.owner}
+             Hello {item.owner}<br /><br />
+             {item.transit && (<p>Enroute - {item.transit} <i style={{color: 'red'}} className="fa fa-diamond" aria-hidden="true"></i> </p>)}
             </label><br />
             <label
               className="control-label"
@@ -102,12 +103,12 @@ class Track extends Component {
               {item.start}
             </label>
             {" "}
-            <i style={{color: 'red'}} class="fa fa-diamond" aria-hidden="true"></i>
-            {" "}  ---------- {" "}
+            <i style={{color: 'red'}} className="fa fa-diamond" aria-hidden="true"></i>
+            {" "}  ---------------------- {" "}
             {" "}
-            <i style={{color: 'red'}} class="fa fa-diamond" aria-hidden="true"></i>
-            {" "} {" "}  ---------- {" "}
-            <i style={{color: 'red'}} class="fa fa-diamond" aria-hidden="true"></i>
+            <i style={{color: 'red'}} className="fa fa-diamond" aria-hidden="true"></i>
+            {" "} {" "}  ---------------------- {" "}
+            <i style={{color: 'red'}} className="fa fa-diamond" aria-hidden="true"></i>
             {" "}
             {" "}
             <label
@@ -185,6 +186,13 @@ class Track extends Component {
                 &nbsp; {item.agent}
               </li>
             </ul>
+            { item.arrived === 'Yes' &&
+            (<div className="grey-box first">
+              <div className="grey-box-container">
+                <div className="title">Parcel arrived {item.destination} awaiting collection</div>
+              </div>
+            </div>)
+            }
             </div>
               );
             })}
