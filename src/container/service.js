@@ -1,4 +1,10 @@
 import React from 'react';
+import box from '../images/box.png'
+import people from '../images/people.png'
+import car from '../images/car.png'
+import doc from '../images/doc.png'
+import track from '../images/track.png'
+import world from '../images/world.png'
 
 const Service = () => {
   return (
@@ -15,7 +21,7 @@ const Service = () => {
               <div className="grid-item">
                 <img
                   alt="Next possible working day delivery"
-                  src="https://parcel.dhl.co.uk/repository/box.png"
+                  src={box}
                 />
                 <p>Next possible working day delivery</p>
               </div>
@@ -24,7 +30,7 @@ const Service = () => {
               <div className="grid-item">
                 <img
                   alt="Fast and secure parcel delivery "
-                  src="https://parcel.dhl.co.uk/repository/car.png"
+                  src={car}
                 />
                 <p>Fast and secure parcel delivery&nbsp;</p>
               </div>
@@ -34,7 +40,7 @@ const Service = () => {
               <div className="grid-item">
                 <img
                   alt="Door-to-door delivery"
-                  src="https://parcel.dhl.co.uk/repository/people.png"
+                  src={people}
                 />
                 <p>Door-to-door delivery</p>
               </div>
@@ -44,7 +50,7 @@ const Service = () => {
               <div className="grid-item">
                 <img
                   alt="Signature on delivery (where available)"
-                  src="https://parcel.dhl.co.uk/repository/doc.png"
+                  src={doc}
                 />
                 <p>Signature on delivery (where available)</p>
               </div>
@@ -54,7 +60,7 @@ const Service = () => {
               <div className="grid-item">
                 <img
                   alt="Free tracking by text, phone, online"
-                  src="https://parcel.dhl.co.uk/repository/box-track.png"
+                  src={track}
                 />
                 <p>Free tracking online</p>
               </div>
@@ -63,7 +69,7 @@ const Service = () => {
               <div className="grid-item">
                 <img
                   alt="UK and international delivery"
-                  src="https://parcel.dhl.co.uk/repository/world.png"
+                  src={world}
                 />
                 <p>UK and international delivery</p>
               </div>

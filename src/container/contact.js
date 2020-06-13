@@ -28,7 +28,7 @@ const Contact = () => {
                     <p
                       className="red-button"
                     >
-                      Email: info@yourdomain.com
+                      Email: eatauk@eatacourier.com
                     </p>
                   </div>
                 </div>
@@ -50,7 +50,7 @@ const Contact = () => {
                     <p
                       className="red-button"
                     >
-                      Email: info@yourdomain.com
+                      Email: eatasa@eatacourier.com
                     </p>
                   </div>
                 </div>
@@ -60,8 +60,8 @@ const Contact = () => {
                   <div className="step-number">3</div>
                   <div className="step-text">New York</div>
                   <div className="step-description">
-                    445752 Brandborg Creek Rd
-                    Henning, Minnesota(MN)
+                    45752 Brandborg Creek Rd
+                    Henning, Minnesota
                     56551
                     <p>&nbsp;</p>
                     <div className="pull-left">
@@ -74,7 +74,7 @@ const Contact = () => {
                     <p
                       className="red-button"
                     >
-                      Email: info@yourdomain.com
+                      Email: eataus@eatacourier.com
                     </p>
                   </div>
                 </div>
